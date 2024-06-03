@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Class
 {
-    internal class Quarto
+    public class Quarto
     {
+        public int NumeroID { get; set; }
+        public string Descricao { get; set; }
+        public double? Valor { get; set; }
     }
+
 }

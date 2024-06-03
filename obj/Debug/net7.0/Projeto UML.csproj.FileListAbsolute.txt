@@ -1,0 +1,14 @@
+C:\Faculdade\Engenharia de Software I\Projeto UML\bin\Debug\net7.0\Projeto UML.exe
+C:\Faculdade\Engenharia de Software I\Projeto UML\bin\Debug\net7.0\Projeto UML.deps.json
+C:\Faculdade\Engenharia de Software I\Projeto UML\bin\Debug\net7.0\Projeto UML.runtimeconfig.json
+C:\Faculdade\Engenharia de Software I\Projeto UML\bin\Debug\net7.0\Projeto UML.dll
+C:\Faculdade\Engenharia de Software I\Projeto UML\bin\Debug\net7.0\Projeto UML.pdb
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.AssemblyInfoInputs.cache
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.AssemblyInfo.cs
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.csproj.CoreCompileInputs.cache
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.dll
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\refint\Projeto UML.dll
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.pdb
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\Projeto UML.genruntimeconfig.cache
+C:\Faculdade\Engenharia de Software I\Projeto UML\obj\Debug\net7.0\ref\Projeto UML.dll

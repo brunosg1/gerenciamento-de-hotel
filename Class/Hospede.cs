@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Class
 {
-    public class Hospode : Pessoa
+    public class Hospede : Pessoa
     {
 
     }

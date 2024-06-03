@@ -33,7 +33,7 @@ namespace Projeto_UML.Repositorio
 
         public Quarto ObterQuarto(int numero)
         {
-            return quartos.FirstOrDefault(q => q.NumeroID == numero);
+            return quartos.FirstOrDefault(predicate: q => q.NumeroID == numero);
         }
 
         public List<Quarto> ListaQuarto()
