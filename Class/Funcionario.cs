@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Class
 {
-    internal class Funcionario
+    public class Funcionario : Pessoa
     {
+        public string? Ctps { get; set; }
+        public string? Email { get; set; }
+        public string? Senha { get; set; }
+        public string? Cargo { get; set; }
     }
 }
