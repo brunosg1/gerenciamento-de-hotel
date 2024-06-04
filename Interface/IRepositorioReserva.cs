@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Interface
 {
-    internal interface IRepositorioReserva
+    public interface IRepositorioReserva
     {
         void FazerReserva(Reserva reserva);
         void AlterarReserva(Reserva reserva);
