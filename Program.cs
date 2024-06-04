@@ -1,6 +1,7 @@
 ﻿using Projeto_UML.Class;
 using Projeto_UML.Interface;
 using Projeto_UML.Repositorio;
+using System.ComponentModel.Design;
 
 namespace Projeto_UML
 {
@@ -8,80 +9,90 @@ namespace Projeto_UML
     {
         static void Main(string[] args)
         {
-            
+
             IRepositorioReserva repositorioReserva = new RepositorioReserva();
             IRepositorioQuarto repositorioQuarto = new RepositorioQuarto();
-            
-            Pessoa hospede = new Pessoa
+            IRepositorioPessoa repositorioPessoa = new RepositorioPessoa();
+
+            Pessoa hospede1 = PessoaFactory.CriarPessoa("Hospede");
+            hospede1.Contato = "1234";
+            hospede1.Endereco = "rua 1234";
+            hospede1.Documento = "123";
+            hospede1.Nome = "Kleber";
+
+            Pessoa hospede3 = PessoaFactory.CriarPessoa("Hospede");
+            hospede3.Contato = "5678";
+            hospede3.Endereco = "rua 5678";
+            hospede3.Documento = "567";
+            hospede3.Nome = "Gustavo";
+
+            Pessoa hospede2 = PessoaFactory.CriarPessoa("Hospede");
+            hospede2.Contato = "91011";
+            hospede2.Endereco = "rua 91011";
+            hospede2.Documento = "91";
+            hospede2.Nome = "Fagner";
+
+            Funcionario funcionario = new Funcionario
             {
-                Id = 1,
-                Nome = "João da Silva",
-                Documento = "123.456.789-00",
-                Endereco = "(11) 1234-5678",
-                Contato = "joao.silva@example.com"
+                Nome = "Maria",
+                Documento = "987",
+                Contato = "987",
+                Endereco = "rua 987",
+                Email = "maria.com",
+                Cargo = "Recepcionista",
+                Senha = "987",
+                Ctps = "987"
             };
+            repositorioPessoa.Inserir(funcionario);
+            repositorioPessoa.Inserir(hospede1);
+            repositorioPessoa.Inserir(hospede2);
+            repositorioPessoa.Inserir(hospede3);
 
+            Quarto quarto1 = new Quarto { Descricao = "Solteiro", NumeroID = 101, Valor = 50 };
+            Quarto quarto2 = new Quarto { Descricao = "Solteiro", NumeroID = 102, Valor = 50 };
+            Quarto quarto3 = new Quarto { Descricao = "Solteiro", NumeroID = 103, Valor = 50 };
+            Quarto quarto4 = new Quarto { Descricao = "Casal", NumeroID = 104, Valor = 100 };
+            repositorioQuarto.InserirQuarto(quarto1);
+            repositorioQuarto.InserirQuarto(quarto2);
+            repositorioQuarto.InserirQuarto(quarto3);
+            repositorioQuarto.InserirQuarto(quarto4);
+            string menu;
+            do
+            {
+                Console.WriteLine("Digite uma opção");
+                
+                Console.WriteLine("1-Adicionar Hospede");
+                Console.WriteLine("2-Fazer Reserva");
+                Console.WriteLine("");
+                Console.WriteLine("1-Adicionar Hospede");
+                menu = Console.ReadLine();
+
+                switch (menu)
+                {
+                    case "1":
+                        Console.WriteLine("1-Adicionar Hospede");
+                        break;
+                    case "2":
+                        Console.WriteLine("2-Fazer Reserva");
+                        break;
+                    case "3":
+                        Console.WriteLine("");
+                        break;
+                    case "4":
+                        Console.WriteLine("1-Adicionar Hospede");
+                        break;
+                    default:
+                        break;
+                }
+            } while (menu != "5");
+ 
             
-            Quarto quarto = new Quarto
-            {
-                NumeroID = 101,
-                Descricao= "1234",
-                Valor=100
-
-            };
-            repositorioQuarto.ListaQuarto();
-            repositorioQuarto.InserirQuarto(quarto);
-            var quartos3 = repositorioQuarto.ListaQuarto();
-            foreach(var temp in quartos3)
-            {
-                Console.WriteLine($"Quarto: {temp.NumeroID}, Tipo: {temp.Descricao}, Valor Diária: {temp.Valor}");
-            }
-
-            Reserva reserva = new Reserva(repositorioQuarto,repositorioReserva)
-            {
-                IDReserva = 1,
-                Hospede = hospede,
-                Quarto = quarto,
-                DataDeEntrada = new DateOnly(2024, 6, 10),
-                DataDeSaida = new DateOnly(2024, 6, 15),
-            };
-
-            
-            repositorioReserva.FazerReserva(reserva);
-
-            
-            bool disponivel = repositorioReserva.VerificarDisponibilidade(101, new DateOnly(2024, 6, 5), new DateOnly(2024, 6, 9));
-            Console.WriteLine("Quarto 101 disponível de 05/06/2024 a 09/06/2024: " + disponivel);
-
-            disponivel = repositorioReserva.VerificarDisponibilidade(101, new DateOnly(2024, 6, 11), new DateOnly(2024, 6, 14));
-            Console.WriteLine("Quarto 101 disponível de 11/06/2024 a 14/06/2024: " + disponivel);
-
-            
-            List<DateOnly> diasDisponiveis = repositorioReserva.ListarDiasDisponiveis(reserva.Quarto.NumeroID, new DateOnly(2024, 6, 5), new DateOnly(2024, 6, 20));
-            Console.WriteLine("Dias disponíveis para o quarto 101:");
-            foreach (var dia in diasDisponiveis)
-            {
-                Console.WriteLine(dia.ToShortDateString());
-            }
-
-           
-            List<Reserva> reservasPessoa = repositorioReserva.ListaPessoa(1);
-            Console.WriteLine("Reservas para a pessoa com ID 1:");
-            foreach (var res in reservasPessoa)
-            {
-                Console.WriteLine($"Reserva ID: {res.IDReserva}, Quarto: {res.Quarto.NumeroID}, Entrada: {res.DataDeEntrada}, Saída: {res.DataDeSaida}");
-            }
-
-          
 
 
-            List<Quarto> quartosDisponiveis = reserva.QuartoDisponivel(new DateOnly(2024, 6, 5), new DateOnly(2024, 6, 11));
-            Console.WriteLine("Quartos disponíveis:", quartosDisponiveis);
-            foreach (var quartos in quartosDisponiveis)
-            {
-                Console.WriteLine($"Quarto: {quartos.NumeroID}, Tipo: {quartos.Descricao}, Valor Diária: {quartos.Valor}");
-            }
+
+
         }
     }
-
+   
 }
+

@@ -13,13 +13,10 @@ namespace Projeto_UML.Interface
         void AlterarReserva(Reserva reserva);
         bool VerificarDisponibilidade(int numeroID, DateOnly dataDeEntrada, DateOnly dataDeSaida);
         List<DateOnly> ListarDiasDisponiveis(int numeroID, DateOnly dataDeEntrada, DateOnly dataDeSaida);
-        List<Reserva> ListaPessoa(int id);
+        List<Reserva> ListaReserva(int id);
         void RemoverReserva(int id);
         //IPagamento GerarMetodoPagamento(string meioDePagamento);
-        /*void InserirFatura(Fatura fatura);
-        void RemoverFatura(Fatura fatura);
-        void AlterarFatura(Fatura fatura);
-        List<Fatura> ListaFatura(int idFatura, Fatura fatura);*/
+        
 
 
     }

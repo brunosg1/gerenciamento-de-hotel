@@ -56,7 +56,7 @@ namespace Projeto_UML.Repositorio
             return diasDisponiveis;
         }
 
-        public List<Reserva> ListaPessoa(int id)
+        public List<Reserva> ListaReserva(int id)
         {
             return reservas.Where(r => r.Hospede.Id == id).ToList();
         }

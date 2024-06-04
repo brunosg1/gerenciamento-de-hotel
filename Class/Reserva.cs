@@ -11,7 +11,8 @@ namespace Projeto_UML.Class
 {
     public class Reserva
     {
-        public int IDReserva { get; set; }
+        private static int contadorId = 0;
+        public int IDReserva { get; private set; }
         public float ValorDiaria { get; set; }
         public DateOnly DataDeEntrada { get; set; }
 
@@ -28,6 +29,7 @@ namespace Projeto_UML.Class
         {
             _repositorioQuarto = repositorioQuarto;
             _repositorioReserva = repositorioReserva;
+            IDReserva = ++contadorId;
         }
 
         public float CalcularValorTotal()

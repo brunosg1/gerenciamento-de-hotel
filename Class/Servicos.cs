@@ -8,9 +8,12 @@ namespace Projeto_UML.Class
 {
     public class Servico
     {
-        public int IdServico { get; set; }
+        private static int contadorId = 0;
+        public int IdServico { get; private set; }
         public string Descricao { get; set; }
         public DateOnly? Data { get; set; }
         public double Valor { get; set; }
+
+        public Servico() { IdServico = ++contadorId; }
     }
 }
