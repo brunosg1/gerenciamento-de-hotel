@@ -15,6 +15,11 @@ namespace Projeto_UML
             IRepositorioPessoa repositorioPessoa = new RepositorioPessoa();
             IRepositorioFatura repositorioFatura = new RepositorioFatura();
             RepositorioServico repositorioServico = new RepositorioServico();
+            Hotel hotel = new Hotel()
+            {
+                NomeHotel = "Hotel Esperença",
+                Endereco = "Rua 431"
+            };
 
             Pessoa hospede1 = PessoaFactory.CriarPessoa("Hospede");
             hospede1.Contato = "1234";
@@ -84,6 +89,8 @@ namespace Projeto_UML
 
             var servico = Reserva.GerarServico();
             repositorioServico.InserirServico(servico);
+
+
             var quartoEntrada = new DateOnly(2024, 06, 03);
             var quartoSaida = new DateOnly(2024, 06, 10);
             var quartosDisponivel = reserva1.QuartoDisponivel(quartoEntrada,quartoSaida);
