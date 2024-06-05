@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_UML.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace Projeto_UML.Class
         public string? Descricao { get; set; }
 
         public Fatura() { IDFatura = ++contadorId; }
+
+        IPagamento GerarMetodoPagamento(string meioDePagamento)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -2,6 +2,7 @@
 using Projeto_UML.Repositorio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,11 +35,40 @@ namespace Projeto_UML.Class
 
         public float CalcularValorTotal()
         {
-            return ValorDiaria;
+            int diferencaDias = (DataDeSaida.ToDateTime(TimeOnly.MinValue) - DataDeEntrada.ToDateTime(TimeOnly.MinValue)).Days;
+            return (float)(ValorDiaria*diferencaDias);
         }
-        public Servico GerarServico()
+
+        public List<Fatura> GerarFaturas(int quantidadeParcela, string meioDePagamento)
+        {
+            List<Fatura> faturas = new List<Fatura>();
+            var valor = CalcularValorTotal();
+            float valorParcela = (float)(valor / quantidadeParcela);
+            DateOnly dataVencimentoInicial = (DataDeSaida.AddDays(3));
+
+            for (int i = 0; i < quantidadeParcela; i++)
+            {
+                Fatura fatura = new Fatura
+                {
+                    Valor = valorParcela,
+                    DataVencimento = dataVencimentoInicial.AddMonths(i),
+                    Descricao = $"Meio de Pagamento: {meioDePagamento}, Valor Total: {valor:C}, Valor da Parcela: {valorParcela:C}"
+                };
+
+                faturas.Add(fatura);
+            }
+
+            return faturas;
+        
+        }
+        public static Servico GerarServico()
         {
             Servico servico = new Servico();
+            Console.WriteLine("Digite a descrição do serviço");
+            servico.Descricao = Console.ReadLine();
+            Console.WriteLine("Digite a valor do serviço");
+            servico.Valor = Console.Read();
+            servico.Data = DateOnly.FromDateTime(DateTime.Now);
             return servico;
         }
    

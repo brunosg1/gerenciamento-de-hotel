@@ -31,9 +31,9 @@ namespace Projeto_UML.Repositorio
             foreach (var reserva in reservas)
             {
                 if (reserva.Quarto.NumeroID == numeroID &&
-                    ((dataDeEntrada >= reserva.DataDeEntrada && dataDeEntrada < reserva.DataDeSaida) || // Entrada dentro da reserva existente
-                    (dataDeSaida > reserva.DataDeEntrada && dataDeSaida <= reserva.DataDeSaida) || // Saída dentro da reserva existente
-                    (dataDeEntrada <= reserva.DataDeEntrada && dataDeSaida >= reserva.DataDeSaida))) // Reserva existente totalmente dentro do novo período
+                    ((dataDeEntrada >= reserva.DataDeEntrada && dataDeEntrada < reserva.DataDeSaida) || 
+                    (dataDeSaida > reserva.DataDeEntrada && dataDeSaida <= reserva.DataDeSaida) || 
+                    (dataDeEntrada <= reserva.DataDeEntrada && dataDeSaida >= reserva.DataDeSaida))) 
                 {
                     return false;
                 }

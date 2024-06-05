@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Class
 {
-    internal class CartaoDeDebito
+    public class CartaoDeDebito
     {
+        public int IDDebito { get; set; }
     }
 }

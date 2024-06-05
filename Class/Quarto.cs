@@ -10,7 +10,7 @@ namespace Projeto_UML.Class
     {
         public int NumeroID { get; set; }
         public string Descricao { get; set; }
-        public double? Valor { get; set; }
+        public double Valor { get; set; }
 
     }
 

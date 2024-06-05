@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Projeto_UML.Class
 {
-    internal class Pix
+    public class Pix
     {
+        public int IDPix { get; set; }
+        void GerarCodigoPix()
+        {
+
+        }
     }
 }
